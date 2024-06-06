@@ -1,0 +1,256 @@
+---
+title: "Learning Quarto"
+date: "2024-01-01"
+subtitle: "The power of Quarto"
+author: "alja"
+abstract: "Quarto is a powerful tool for data science. We love Quarto!"
+keywords: "quarto, learning, great"
+format: 
+    html:
+      toc: true
+      toc-depth: 4
+      toc_float: true
+      toc-location: right
+      mainfont: atkinson hyperlegible
+      theme: minty
+      code-fold: show
+execute: 
+  error: true
+  warning: false
+  message: false
+crossref: 
+  tbl-prefix: "tabela"
+  tbl-title: "Tabela"
+  fig-prefix: "figura"
+  fig-title: "Figura"
+---
+
+# Uvod
+
+## Running Code
+
+```{r}
+#| echo: false
+#| message: false
+library(tidyverse)
+library(knitr)
+library(gt)
+library(DT)
+library(leaflet)
+```
+
+### Error code
+
+```{r}
+sqrt('a')
+```
+
+## Jupijej
+
+-   lahko naredimo seznam
+-   with a click of a button
+-   tudi slikice zna
+
+### Slikica
+
+![moje ozadje](images/warm-background-5jdq83nm4u5p9ilv.jpg){fig-align="center"}
+
+## Cross-referencing 1
+
+```{r}
+#| label: tbl-airquality1
+#| tbl-cap: "The airquality1 in NY in 1973"
+
+airquality %>%
+  head() %>%
+  gt()
+```
+
+
+## Tabele in stuff
+
+| moji | tvoji | najini | nasi | njihovi |
+|:----:|:-----:|:------:|:----:|:-------:|
+| blah |   1   |   1    |  1   |    1    |
+|  1   |   2   |   3    |  4   |    4    |
+|  3   |   3   |   3    |  3   |  then   |
+
+### Graf
+
+```{r}
+#| echo: true
+#| fig-width: 10
+#| fig-height: 4.5
+library(ggplot2)
+ggplot(mtcars, aes(hp, mpg, color = am)) +
+  geom_point() +
+  geom_smooth(formula = y ~ x, method = "loess")
+```
+
+### Stolpci
+
+::: columns
+::: {.column width="50%"}
+         
+Levo
+
+:::
+
+::: {.column width="50%"}
+       
+Desno
+
+:::
+:::
+
+### Drugi stolpci
+
+::: columns
+::: {.column width="35%"}
+#### Motor Trend Car Road Tests
+
+The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles.
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="62%"}
+::: cell
+::: cell-output-display
+|                   |  mpg | cyl | disp |  hp |    wt |
+|:------------------|-----:|----:|-----:|----:|------:|
+| Mazda RX4         | 21.0 |   6 |  160 | 110 | 2.620 |
+| Mazda RX4 Wag     | 21.0 |   6 |  160 | 110 | 2.875 |
+| Datsun 710        | 22.8 |   4 |  108 |  93 | 2.320 |
+| Hornet 4 Drive    | 21.4 |   6 |  258 | 110 | 3.215 |
+| Hornet Sportabout | 18.7 |   8 |  360 | 175 | 3.440 |
+| Valiant           | 18.1 |   6 |  225 | 105 | 3.460 |
+:::
+:::
+:::
+:::
+
+### Tretji stolpci - v visual
+
+ne morš lol, pejd v source
+
+### Četrti stolpci {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+airquality %>% 
+   head() %>% 
+   kable()
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+airquality %>% 
+   head() %>% 
+   gt()
+```
+:::
+
+::::
+
+## Tabset
+
+::: {.panel-tabset}
+### Kable
+```{r}
+airquality %>% 
+   head() %>% 
+   kable()
+```
+
+### Gt
+```{r}
+airquality %>% 
+   head() %>% 
+   gt()
+```
+
+### Datatable
+```{r}
+airquality %>%
+  datatable()
+```
+
+:::
+
+## Cross-referencing 2
+
+```{r}
+#| label: tbl-airquality2
+#| tbl-cap: "The airquality2 in NY in 1973"
+
+airquality %>%
+  head() %>%
+  gt()
+```
+V tabeli @tbl-airquality1 smo podatke zbirali 5 mesecev, medtem ko smo jih za tabelo @tbl-airquality2 zbirali 5 mesecev in en dan.
+
+### Kaj pa slikice
+
+```{r}
+#| label: fig-airquality
+#| fig-cap: "Ozone vs. temp"
+
+airquality %>% 
+   dplyr::select(Ozone, Temp) %>% 
+   ggplot(., aes(x=Temp, y=Ozone))+
+   geom_point()
+```
+The chart @fig-airquality shows the relationship between Ozone and Temp.
+
+## Callout blocks - fun!
+
+
+::: {.callout-note}
+Note that there are five types of callouts, including:
+`note`, `warning`, `important`, `tip`, and `caution`.
+:::
+
+::: {.callout-tip}
+## Ideja
+
+This is an example of a callout with a title.
+:::
+
+::: {.callout-warning}
+## Ojoj
+
+This is an example of a warning.
+:::
+
+::: {.callout-caution}
+Pazi na presledke!
+:::
+
+::: {.callout-important}
+## Mmmm zelo pomembno
+You rock!
+:::
+
+## Widgets!
+
+```{r}
+#| echo: false
+#| fig-height: 5
+leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lat=45.5489, lng=13.7276, popup="FAMNIT")
+```
+
+## Large chunk
+
+```{r}
+#| cache: true
+Sys.sleep(7)
+```
+
