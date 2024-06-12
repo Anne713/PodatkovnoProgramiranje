@@ -1,0 +1,166 @@
+---
+title: "Vaje 8 - Quarto"
+author: "Alja"
+format: html
+editor: visual
+execute: 
+  warning: false
+  messages: false
+  error: true
+---
+
+## Drugi naslov
+
+Prvi odstavek in to.
+
+Drugi odstavek in to.
+
+```{r, error=TRUE}
+library(tidyverse)
+c("ford", "volvo", "bmw")[1]
+3+'a'
+```
+
+```{r}
+#| error: true
+4+'b'
+y<-18-2
+getwd()
+```
+
+Vrednost y je: `r y`.
+
+*italic* **bold** ***bold and italic*** ~~strikethrough~~ in pa superscript^a^, ki ga lahko naredis z LaTeXom${}^4$. Pazi, ker je LaTeX obcutljiv na presledke: \$ {}\^4\$ \${}\^4 \$ ${}^4$
+
+## seznami
+
+-   prva stvar
+-   druga stvar
+    -   podstvari druge stvari
+        -   in se manjse podstvari
+
+1.  ostevilci
+2.  jih
+3.  tud
+4.  sam
+    1.  hehe
+    2.  hihi
+    3.  hoho
+
+## link
+
+[click me](https://www.famnit.upr.si "famnit")
+
+## grafi in figure in to
+
+```{r}
+#| label: fig-ggplot
+#| fig-cap: ggplot
+ggplot(iris)+
+  geom_point(aes(x=Petal.Length,y=Petal.Width))
+```
+
+See @fig-ggplot and @fig-plot
+
+```{r}
+#| label: fig-plot
+#| fig-cap: Soncnica
+knitr::include_graphics("https://media.istockphoto.com/id/897714412/photo/sun-flower.jpg?s=612x612&w=0&k=20&c=2jlfrdkypkV31wAtL4YfC6dPzYxQ3nv8XhIGD-lddrk=")
+```
+
+| 1   | 2   | 3   | 4   | 5   |
+|-----|-----|-----|-----|-----|
+| a   | d   | g   | j   | m   |
+| b   | e   | h   | k   | n   |
+| c   | f   | i   | l   | o   |
+
+: mhm mhm {#tbl-letters}
+
+See @tbl-letters
+
+```{r}
+#| label: tbl-iris
+#| tbl-cap: "Iris Data"
+knitr::kable(head(iris))
+```
+
+The cross reference from @tbl-iris seems to only work with the knitr package.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Gres pod Tools -> Code -> Global options -> Edit snippets in das zeljene snippete v markdown.
+:::
+
+::: {.column width="50%"}
+Pol jih pa uporablas tko da napises keyword, recimo column za tole, in pritisnes Shift + Tab
+:::
+
+::::
+
+## Urejanje teksta s html
+
+<p style="color:red">
+tukaj pise z rdeco
+</p>
+
+<font size="1"> This is font size 1</font> <font size="4"> This is my
+font size 4</font>
+
+## tabsets
+
+::: panel-tabset
+#### EN
+
+::: panel-tabset
+
+##### 1
+two versions of the same thing
+
+##### 2
+two different versions of the same thingy
+
+:::
+
+#### SLO
+
+dve verziji iste stvari ali karkoli si zelis
+
+drgac lahko tud neki {panel-tabset} al neki tazga
+:::
+
+### Vic oz. sala
+
+<details>
+
+<summary>Watch out for puns!</summary>
+
+A bear walks into a bar and says, "Give me a whiskey and ... cola." "Why
+the big pause?" asks the bartender. The bear shrugged. "I'm not sure; I
+was born with them."
+
+</details>
+
+## uporaba LaTeXa za matematiko
+
+$$|x|=\begin{cases}
+x & x>0 \\
+-x & \text{otherwise}
+\end{cases}$$
+
+This is a math equation $a^2+b^2=c^2$, and here is another one $$\sum_{i=1}^ni=\frac{n\cdot(n+1)}{2}.$$ It uses LaTeX  notation, in which various commands that starts with \\, arguemnts are enclosed in \{\} and math mode both starts and ends with with \$ (or \$\$). Carefull, dont leave space after the first $ and before the second $.
+
+Symbols that should work: <https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols>
+
+### Inline verbatim with LaTeX
+
+"Quotation marks are translated as such",
+if we want to make a copypastable code inside a sentence $\verb+v<-"copypastable"+$ we may do the above
+
+Set the start/end symbol to be one that you do not use in the rest of the kode $\verb*1+2+3*$.
+
+You may also use a chunk but it will not be inline.
+```{r, eval=F}
+v<-"copypastable"
+```
+

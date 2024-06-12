@@ -1,0 +1,32 @@
+---
+title: "Vaje 8.1"
+author: "Alja"
+format:
+  html:
+    toc: true
+    toc_float: yes
+    embed-resources: true
+editor: visual
+bibliography: imedatoteke.bib
+---
+
+nekoga citiram tukaj [@velkavrh2019]. Pa se nekoga [@fundamen].
+
+Sam jih bo vstavil v datoteko ki smo jo navedli na vrhu. 
+
+Loh tud rocno kopiras bibtex kodo (iz recimo google books ali google scholar) v dokument in uporabis prvo besedo za citiranje [@waller2010statistics].
+
+## slikca 
+
+```{r}
+#| label: fig-plot
+#| fig-cap: Soncnica
+knitr::include_graphics("https://media.istockphoto.com/id/897714412/photo/sun-flower.jpg?s=612x612&w=0&k=20&c=2jlfrdkypkV31wAtL4YfC6dPzYxQ3nv8XhIGD-lddrk=")
+```
+
+**Embed resources!!**
+
+plus zbrisi filese od te datoteke in se enkrat renderaj
+sicer za link mogoce ni nujno
+
+## Viri
