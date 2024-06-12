@@ -1,0 +1,44 @@
+Exercise 1 _
+
+Subset the vector, "mtcars[,1]", for values greater than "15.0". _
+
+Exercise 2 _
+
+Subset the dataframe, "mtcars" for rows with "mpg" greater than , or equal to, 21 miles per gallon. _
+
+Exercise 3 _
+
+Subset "mtcars" for rows wih "cyl" less than "6", and "gear" exactly equal to "4". _
+
+Exercise 4 _
+
+Subset "mtcars" for rows greater than, or equal to, 21 miles per gallon. Also, select only the columns, "mpg" through "hp". _
+
+Exercise 5 _
+
+Subset "airquality" for "Ozone" greater than "28", or "Temp" greater than "70". Return the first five rows. _
+
+Exercise 6 _
+
+Subset "airquality" for "Ozone" greater than "28", and "Temp" greater than "70". Select the columns, "Ozone" and "Temp". _ Return the first five rows. _
+
+Exercise 7 _
+
+Subset the "CO2" dataframe for "Treatment" values of "chilled",
+and "uptake" values greater that "15". Remove the category, "conc". Return the first 10 rows.
+
+Exercise 8 _
+
+Subset "airquality" for "Ozone" greater than "100". Select the columns "Ozone", "Temp", "Month" and "Day" only.
+
+Exercise 9 _
+
+From mtcars dataset show only columns with the letter p in their names, where number of cyl=6!
+
+Exercise 10 _
+
+From mtcars dataset show only every other column and every 7th row. Generate sequences for rows and columns!
+
+Exercise 11 _
+
+Create a list of the following dataframes: iris, cars, mtcars. Subset the list and calculate the mean for the last 6 rows of the mtcars' wt column.

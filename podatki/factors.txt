@@ -1,0 +1,36 @@
+Exercise 1 _
+If x = c(1, 2, 3, 3, 5, 3, 2, 4, NA), what are the levels of factor(x)? _
+a. 1, 2, 3, 4, 5 _
+b. NA _
+c. 1, 2, 3, 4, 5, NA _
+
+Exercise 2 _
+Let x <- c(11, 22, 47, 47, 11, 47, 11). If an R expression factor(x, levels=c(11, 22, 47), ordered=TRUE) is executed, what will be the 4th element in the output? _
+a. 11 _
+b. 22 _
+c. 47 _
+
+Exercise 3 _
+If z <- c("p", "a" , "g", "t", "b"), then which of the following R expressions will replace the third element in z with "b". _
+a. factor(z[3]) <- "b" _
+b. levels(z[3]) <- "b" _
+c. z[3] <- "b" _
+
+Exercise 4 _
+If z <- factor(c("p", "q", "p", "r", "q")) and levels of z are "p", "q" ,"r", write an R expression that will change the level "p" to "w" so that z is equal to: "w", "q" , "w", "r" , "q". _
+
+Exercise 5 _
+If: _
+s1 <- factor(sample(letters, size=5, replace=TRUE)) and _
+s2 <- factor(sample(letters, size=5, replace=TRUE)), _
+write an R expression that will concatenate s1 and s2 in a single factor with 10 elements.
+Hint: transform factors to character (as.character() and then transform character back to factors) _
+
+Exercise 6 _
+Consider the iris data set in R. Write an R expression that will ‘cut’ the Sepal.Length variable and create the following factor with five levels. Use help on cut function. _
+
+(4.3, 5.02] (5.02, 5.74] (5.74, 6.46] (6.46, 7.18] (7.18, 7.9] _
+32 41 42 24 11 _
+
+
+
