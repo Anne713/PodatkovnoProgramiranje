@@ -53,7 +53,7 @@ sqrt('a')
 
 ### Slikica
 
-![moje ozadje](images/warm-background-5jdq83nm4u5p9ilv.jpg){fig-align="center"}
+![moje ozadje](images/warm-background-5jdq83nm4u5p9ilv.jpg){#fig-ozadje fig-align="center"}
 
 ## Cross-referencing 1
 
@@ -66,7 +66,6 @@ airquality %>%
   gt()
 ```
 
-
 ## Tabele in stuff
 
 | moji | tvoji | najini | nasi | njihovi |
@@ -74,6 +73,8 @@ airquality %>%
 | blah |   1   |   1    |  1   |    1    |
 |  1   |   2   |   3    |  4   |    4    |
 |  3   |   3   |   3    |  3   |  then   |
+
+**Slikica** @fig-ozadje
 
 ### Graf
 
@@ -91,15 +92,11 @@ ggplot(mtcars, aes(hp, mpg, color = am)) +
 
 ::: columns
 ::: {.column width="50%"}
-         
 Levo
-
 :::
 
 ::: {.column width="50%"}
-       
 Desno
-
 :::
 :::
 
@@ -137,15 +134,13 @@ ne morš lol, pejd v source
 
 ### Četrti stolpci {.smaller}
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
 ```{r}
 airquality %>% 
    head() %>% 
    kable()
 ```
-
 :::
 
 ::: {.column width="50%"}
@@ -155,13 +150,13 @@ airquality %>%
    gt()
 ```
 :::
-
-::::
+:::
 
 ## Tabset
 
-::: {.panel-tabset}
+::: panel-tabset
 ### Kable
+
 ```{r}
 airquality %>% 
    head() %>% 
@@ -169,6 +164,7 @@ airquality %>%
 ```
 
 ### Gt
+
 ```{r}
 airquality %>% 
    head() %>% 
@@ -176,11 +172,11 @@ airquality %>%
 ```
 
 ### Datatable
+
 ```{r}
 airquality %>%
   datatable()
 ```
-
 :::
 
 ## Cross-referencing 2
@@ -193,6 +189,7 @@ airquality %>%
   head() %>%
   gt()
 ```
+
 V tabeli @tbl-airquality1 smo podatke zbirali 5 mesecev, medtem ko smo jih za tabelo @tbl-airquality2 zbirali 5 mesecev in en dan.
 
 ### Kaj pa slikice
@@ -206,34 +203,34 @@ airquality %>%
    ggplot(., aes(x=Temp, y=Ozone))+
    geom_point()
 ```
+
 The chart @fig-airquality shows the relationship between Ozone and Temp.
 
 ## Callout blocks - fun!
 
-
-::: {.callout-note}
-Note that there are five types of callouts, including:
-`note`, `warning`, `important`, `tip`, and `caution`.
+::: callout-note
+Note that there are five types of callouts, including: `note`, `warning`, `important`, `tip`, and `caution`.
 :::
 
-::: {.callout-tip}
+::: callout-tip
 ## Ideja
 
 This is an example of a callout with a title.
 :::
 
-::: {.callout-warning}
+::: callout-warning
 ## Ojoj
 
 This is an example of a warning.
 :::
 
-::: {.callout-caution}
+::: callout-caution
 Pazi na presledke!
 :::
 
-::: {.callout-important}
+::: callout-important
 ## Mmmm zelo pomembno
+
 You rock!
 :::
 
@@ -253,4 +250,3 @@ leaflet() %>%
 #| cache: true
 Sys.sleep(7)
 ```
-
